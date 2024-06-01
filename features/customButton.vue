@@ -1,16 +1,17 @@
 <script setup lang="ts">
   import {useAppStore} from "~/stores/app";
+  import {storeToRefs} from "pinia";
 
   const props = defineProps({
     clickHandler: Function,
     styleClass: String,
   })
   const appStore = useAppStore()
-  const isDark = appStore.themeIsDark
+  const {themeIsDark} = storeToRefs(appStore)
 
   // я жду, что buttonClass будет меняться при изменении themeIsDark в сторе. Но что-то не взлетает.
   const buttonClass = computed(() => {
-    return `${props.styleClass + " " + props.styleClass + "__"}${isDark ? 'dark' : 'light'}`
+    return `${props.styleClass + " " + props.styleClass + "__"}${themeIsDark ? 'dark' : 'light'}`
   })
 </script>
 

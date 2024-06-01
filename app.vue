@@ -12,4 +12,5 @@
     <custom-button style-class="selector">Click!</custom-button>
     <custom-button :click-handler="changeTheme" style-class="cart">Click!</custom-button>
   </div>
+  <NuxtPage />
 </template>
