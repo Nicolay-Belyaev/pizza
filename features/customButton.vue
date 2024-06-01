@@ -1,16 +1,21 @@
 <script setup lang="ts">
+  import {useAppStore} from "~/stores/app";
+
   const props = defineProps({
     clickHandler: Function,
     styleClass: String,
-    isDark: Boolean
   })
-  const style = computed(() => {
-    return `${props.styleClass + " " + props.styleClass + "__"}${props.isDark ? 'dark' : 'light'}`
+  const appStore = useAppStore()
+  const isDark = appStore.themeIsDark
+
+  // я жду, что buttonClass будет меняться при изменении themeIsDark в сторе. Но что-то не взлетает.
+  const buttonClass = computed(() => {
+    return `${props.styleClass + " " + props.styleClass + "__"}${isDark ? 'dark' : 'light'}`
   })
 </script>
 
 <template>
-  <button @click="clickHandler" :class=style>
+  <button @click="clickHandler" :class=buttonClass>
     <slot></slot>
   </button>
 </template>

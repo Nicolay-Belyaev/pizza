@@ -2,15 +2,14 @@
   import CustomButton from "~/features/customButton.vue";
   import {useAppStore} from "~/stores/app";
 
-  const appStore = useAppStore()
-  const isDark = false;
+  const { changeTheme } = useAppStore()
 
 
 </script>
 
 <template>
   <div>
-    <custom-button style-class="selector" :is-dark='isDark'>Click!</custom-button>
-    <custom-button style-class="cart" :is-dark=true>Click!</custom-button>
+    <custom-button style-class="selector">Click!</custom-button>
+    <custom-button :click-handler="changeTheme" style-class="cart">Click!</custom-button>
   </div>
 </template>
