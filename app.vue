@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import CustomButton from "~/features/customButton.vue";
-const data = () => {
-  return {
-    isDark: true
-  }
-}
+  import CustomButton from "~/features/customButton.vue";
+  import {useAppStore} from "~/stores/app";
+
+  const appStore = useAppStore()
+  const isDark = false;
+
+
 </script>
 
 <template>
