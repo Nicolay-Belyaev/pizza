@@ -1,4 +1,14 @@
 <script setup lang="ts">
+/**
+  Creates button with easily customizable appearance.
+
+  For setting appearance write a style inside the component and set your style name as styleClass prop.
+  For different appearance in dark and light modes add two sub-stiles with names "light" and "dark" inside your style.
+  Check simple example in 'default' style in component's styles.
+
+  @property clickHandler - Function - executes on click on the button.
+  @property styleClass - String - name of style which be applided to the button.
+ */
   import {useAppStore} from "~/stores/app";
   import {storeToRefs} from "pinia";
 
@@ -18,18 +28,26 @@
     },
   });
 </script>
-
+<!-- Testing comments, this will work too. -->
 <template>
   <button @click="clickHandler" :class="styleClass + ' ' + styleClass + '__' + themeColor">
-    <slot></slot>
+    <slot/>
   </button>
 </template>
 
 <style scoped lang="scss">
   .default {
-    background-color: red;
     height: 100px;
     width: 100px;
+
+    &__light {
+      color: #ffffff;
+      background-color: rgb(255, 0, 0);
+    }
+    &__dark {
+      color: #000000;
+      background-color: #009b95;
+    }
   }
   .selector {
     height: 35px;

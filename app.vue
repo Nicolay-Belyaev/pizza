@@ -4,8 +4,6 @@
   import CartImage from "~/shared/assets/cart-image.vue";
 
   const { changeTheme } = useAppStore()
-
-
 </script>
 
 <template>
